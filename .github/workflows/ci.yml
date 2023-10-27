@@ -59,7 +59,6 @@ jobs:
           arguments: -v ./gradlew app:assemblefenixForkRelease -x lintVitalFenixForkRelease -PversionName=${{ env.VERSION_NAME }} --stacktrace
 
       - name: Create signed APKs
-        if: "contains(toJSON(github.event.ref_type), 'tag') && contains(toJSON(github.event.ref), 'iceraven')"
         uses: abhijitvalluri/sign-apks@v0.8
         with:
           releaseDirectory: app/build/outputs/apk/fenix/forkRelease/
